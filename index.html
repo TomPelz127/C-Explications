@@ -3,9 +3,9 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>CSharpExplicationsPratiques - Tutoriels C#</title>
+<title>CSharpExplicationsPratiques</title>
 
 <style>
 * {
@@ -14,153 +14,183 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
     color: #333;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
+/* En-tête */
+
 header {
-    background: #243b55;
-    color: white;
-    padding: 25px 40px;
+    border-bottom: 1px solid #ddd;
+    padding: 18px 35px;
 }
 
 header h1 {
+    font-size: 23px;
+    font-weight: normal;
     margin: 0;
+    color: #222;
 }
 
 header p {
-    margin-bottom: 0;
-    color: #d5e0ec;
+    margin: 2px 0 0;
+    color: #777;
+    font-size: 13px;
 }
+
+/* Mise en page */
 
 .container {
     display: flex;
-    max-width: 1250px;
-    margin: 30px auto;
-    gap: 25px;
-    padding: 0 20px;
+    max-width: 1150px;
+    margin: 35px auto;
+    padding: 0 25px;
+    gap: 55px;
 }
 
+/* Menu */
+
 nav {
-    width: 230px;
+    width: 190px;
     flex-shrink: 0;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    height: fit-content;
-    position: sticky;
-    top: 20px;
 }
 
 nav h3 {
+    font-size: 14px;
+    font-weight: bold;
     margin-top: 0;
+    margin-bottom: 12px;
 }
 
 nav a {
     display: block;
-    color: #245b91;
+    color: #555;
     text-decoration: none;
-    padding: 9px 0;
+    padding: 5px 0;
+    font-size: 14px;
 }
 
 nav a:hover {
-    color: #007bff;
+    color: #0066cc;
 }
+
+/* Contenu */
 
 main {
     flex: 1;
     min-width: 0;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-}
-
-section {
-    margin-bottom: 45px;
+    max-width: 800px;
 }
 
 h2 {
-    color: #243b55;
-    border-bottom: 2px solid #e5eaf0;
-    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: normal;
+    color: #222;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-top: 35px;
+}
+
+h2:first-of-type {
+    margin-top: 0;
 }
 
 h3 {
-    color: #345d83;
-    margin-top: 28px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 8px;
 }
 
 p {
-    line-height: 1.6;
+    margin: 8px 0 14px;
 }
+
+/* Code */
 
 pre {
-    background: #1e293b;
-    color: #e2e8f0;
-    padding: 18px;
-    border-radius: 7px;
+    background: #f5f5f5;
+    border: 1px solid #e2e2e2;
+    padding: 13px 16px;
     overflow-x: auto;
-    line-height: 1.6;
+    font-family: Consolas, monospace;
     font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
 }
 
-.code-comment {
-    color: #8fa3b8;
+code {
+    font-family: Consolas, monospace;
+}
+
+.comment {
+    color: #777;
 }
 
 .variable {
-    color: #60a5fa;
-    font-weight: bold;
+    color: #0066cc;
 }
 
+/* Remarques */
+
 .note {
-    background: #eaf3ff;
-    border-left: 4px solid #3182ce;
-    padding: 12px 16px;
-    border-radius: 4px;
+    border-left: 3px solid #aaa;
+    padding: 5px 12px;
     margin: 15px 0;
+    color: #555;
+    font-size: 14px;
 }
+
+/* Tableau */
 
 table {
     border-collapse: collapse;
+    margin: 15px 0;
     width: 100%;
-    margin-top: 20px;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
+    border: 1px solid #ccc;
+    padding: 9px 12px;
     text-align: left;
 }
 
 th {
-    background: #243b55;
-    color: white;
+    background: #f3f3f3;
+    font-weight: bold;
 }
+
+/* Pied de page */
 
 footer {
+    border-top: 1px solid #ddd;
+    margin-top: 60px;
+    padding: 18px;
     text-align: center;
-    padding: 25px;
-    color: #777;
+    color: #888;
+    font-size: 13px;
 }
 
-@media (max-width: 750px) {
+/* Téléphone */
+
+@media (max-width: 700px) {
     .container {
-        flex-direction: column;
+        display: block;
+        margin-top: 20px;
     }
 
     nav {
         width: 100%;
-        position: static;
-    }
-
-    main {
-        padding: 20px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 15px;
+        margin-bottom: 25px;
     }
 
     header {
-        padding: 25px 20px;
+        padding: 15px 20px;
     }
 }
 </style>
@@ -170,13 +200,13 @@ footer {
 
 <header>
     <h1>CSharpExplicationsPratiques</h1>
-    <p>Explications et exemples pratiques en C#</p>
+    <p>Quelques explications et exemples de code en C#</p>
 </header>
 
 <div class="container">
 
 <nav>
-    <h3>Navigation</h3>
+    <h3>Sommaire</h3>
     <a href="#thread">Thread</a>
     <a href="#fichier">Sélectionner un fichier</a>
     <a href="#datagridview">DataGridView</a>
@@ -184,38 +214,36 @@ footer {
 
 <main>
 
-<p><strong>Date :</strong> 04/11/2026</p>
+<p><strong>Dernière mise à jour :</strong> 04.11.2026</p>
+
+<p>
+    Voici quelques notes et exemples de code que j'utilise
+    en C#. Le but est de retrouver facilement certaines
+    commandes et de comprendre rapidement leur utilisation.
+</p>
 
 <div class="note">
-    <strong>Convention :</strong>
-    Les éléments affichés en bleu sont des variables dont le nom peut être personnalisé.
+    Les éléments écrits en bleu sont des variables dont le nom peut être personnalisé.
 </div>
 
 <!-- THREAD -->
 
-<section id="thread">
-
-<h2>Thread</h2>
+<h2 id="thread">Thread</h2>
 
 <h3>Ajouter une fonction dans un Thread</h3>
 
-<p>Permet de créer un Thread qui exécutera une fonction.</p>
+<p>Créer un Thread qui exécutera une fonction :</p>
 
 <pre><code>Thread <span class="variable">myThread</span> = new Thread(FONCTION);</code></pre>
 
 <h3>Démarrer le Thread</h3>
 
-<p>Pour lancer l'exécution du Thread :</p>
-
 <pre><code><span class="variable">myThread</span>.Start();</code></pre>
 
-</section>
 
-<!-- OPEN FILE DIALOG -->
+<!-- FICHIER -->
 
-<section id="fichier">
-
-<h2>Ouvrir une fenêtre pour sélectionner un fichier</h2>
+<h2 id="fichier">Ouvrir une fenêtre pour sélectionner un fichier</h2>
 
 <h3>Création de la fenêtre</h3>
 
@@ -223,22 +251,22 @@ footer {
 
 <h3>Définir le répertoire de départ</h3>
 
-<p>Permet de définir le dossier dans lequel la fenêtre s'ouvrira.</p>
+<p>Définit le dossier dans lequel la fenêtre doit s'ouvrir :</p>
 
 <pre><code><span class="variable">openFileDialog</span>.InitialDirectory = "C:\\MesDocuments\\Cantons";</code></pre>
 
-<p>Ou utiliser le dossier dans lequel se trouve le fichier EXE :</p>
+<p>Ou utiliser directement le dossier contenant le fichier .EXE :</p>
 
 <pre><code><span class="variable">openFileDialog</span>.InitialDirectory = Application.StartupPath;</code></pre>
 
 <div class="note">
-    Cette propriété définit le répertoire initial, mais n'ouvre pas
-    elle-même la fenêtre de sélection.
+    Cette commande définit uniquement le répertoire de départ.
+    Elle n'ouvre pas la fenêtre.
 </div>
 
 <h3>Afficher la fenêtre et récupérer le fichier</h3>
 
-<p>La fenêtre s'ouvre. Si l'utilisateur clique sur OK, on récupère le chemin du fichier sélectionné.</p>
+<p>La fenêtre s'affiche. Si l'utilisateur clique sur OK, le chemin du fichier est récupéré :</p>
 
 <pre><code>if (<span class="variable">openFileDialog</span>.ShowDialog() == DialogResult.OK)
 {
@@ -252,31 +280,26 @@ footer {
 
 <h3>Filtrer les extensions</h3>
 
-<p>Permet de choisir quels types de fichiers sont affichés.</p>
+<p>Permet de limiter les fichiers affichés à certaines extensions :</p>
 
 <pre><code><span class="variable">openFileDialog</span>.Filter =
     "Fichiers texte (*.txt)|*.txt|Tous les fichiers (*.*)|*.*";</code></pre>
 
-</section>
 
 <!-- DATAGRIDVIEW -->
 
-<section id="datagridview">
+<h2 id="datagridview">DataGridView</h2>
 
-<h2>DataGridView</h2>
-
-<h3>Vider les colonnes du DataGridView</h3>
-
-<p>Supprime toutes les colonnes du tableau.</p>
+<h3>Vider les colonnes</h3>
 
 <pre><code><span class="variable">dgv</span>.Columns.Clear();</code></pre>
 
 <h3>Ajouter des colonnes</h3>
 
-<p>Permet de créer les colonnes du tableau.</p>
+<p>Ajoute une nouvelle colonne au DataGridView :</p>
 
 <div class="note">
-    Premier paramètre : le nom utilisé dans ton code.<br>
+    Premier paramètre : le nom utilisé dans le code.<br>
     Deuxième paramètre : le texte affiché dans l'en-tête du tableau.
 </div>
 
@@ -286,11 +309,11 @@ footer {
 
 <h3>Ajouter des lignes</h3>
 
-<p>Permet d'ajouter une ligne avec les valeurs souhaitées.</p>
+<p>Ajoute une ligne avec les valeurs indiquées :</p>
 
 <pre><code><span class="variable">dgv</span>.Rows.Add("Genève", 520000);</code></pre>
 
-<h3>Exemple de résultat</h3>
+<h3>Résultat</h3>
 
 <table>
     <thead>
@@ -307,13 +330,11 @@ footer {
     </tbody>
 </table>
 
-</section>
-
 </main>
 </div>
 
 <footer>
-    CSharpExplicationsPratiques - Tutoriels C#
+    CSharpExplicationsPratiques
 </footer>
 
 </body>
