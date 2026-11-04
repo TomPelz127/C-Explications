@@ -1,0 +1,59 @@
+
+BLEU = Variable, nom personnalisable
+
+Thread :
+Ajouter une fonction dans un Thread :
+Thread myThread = new Thread(FONCTION);
+
+Start du Thread :
+myThread.Start();
+
+
+Ouvrir une Fenêtre pour sélectionner un fichier :
+
+Création de la fenêtre :
+OpenFileDialog openFileDialog = new OpenFileDialog();
+
+Défini la fenêtre dans un répertoire : (ouvre pas)
+	openFileDialog.InitialDirectory = "C:\\MesDocuments\\Cantons";
+ou alors :
+	 // Application.StartupPath; = le dossier où il y a le .EXE
+		openFileDialog.InitialDirectory = Application.StartupPath;
+
+Ouvre et Affiche la fenêtre SI l’utilisateur appui sur “OK” :
+
+if (openFileDialog.ShowDialog() == DialogResult.OK)
+{
+    // Récupère le nom du fichier sélectionné
+    FileName = openFileDialog.FileName; // 
+}
+
+
+	Ajouter un Titre en haut de la fenêtre :
+		openFileDialog.Title = "Sélectionner le fichier";
+
+	Filtrer les extension :
+		openFileDialog.Filter = "Fichiers texte (*.txt)|*.txt|Tous les fichiers (*.*)|*.*";
+
+
+
+DATAGRIDVIEW :
+
+	Clear du DGV :
+		dgv.Columns.Clear();
+
+	Ajout des colonnes :
+// Premier paramètre : le nom utilisé dans ton code.
+// Deuxième paramètre : le texte affiché dans l'en-tête du tableau.
+		dgv.Columns.Add("Nom", "Nom du canton");
+dgv.Columns.Add("Population", "Population suisse");
+
+	Ajout des lignes :
+		dgv.Rows.Add("Genève", 520000);
+
+	
+Nom du canton
+Population suisse
+Genève
+520000
+
