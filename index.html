@@ -1,59 +1,320 @@
 
-BLEU = Variable, nom personnalisable
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Thread :
-Ajouter une fonction dans un Thread :
-Thread myThread = new Thread(FONCTION);
+<title>CSharpExplicationsPratiques - Tutoriels C#</title>
 
-Start du Thread :
-myThread.Start();
-
-
-Ouvrir une Fenêtre pour sélectionner un fichier :
-
-Création de la fenêtre :
-OpenFileDialog openFileDialog = new OpenFileDialog();
-
-Défini la fenêtre dans un répertoire : (ouvre pas)
-	openFileDialog.InitialDirectory = "C:\\MesDocuments\\Cantons";
-ou alors :
-	 // Application.StartupPath; = le dossier où il y a le .EXE
-		openFileDialog.InitialDirectory = Application.StartupPath;
-
-Ouvre et Affiche la fenêtre SI l’utilisateur appui sur “OK” :
-
-if (openFileDialog.ShowDialog() == DialogResult.OK)
-{
-    // Récupère le nom du fichier sélectionné
-    FileName = openFileDialog.FileName; // 
+<style>
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
 
-	Ajouter un Titre en haut de la fenêtre :
-		openFileDialog.Title = "Sélectionner le fichier";
+header {
+    background: #243b55;
+    color: white;
+    padding: 25px 40px;
+}
 
-	Filtrer les extension :
-		openFileDialog.Filter = "Fichiers texte (*.txt)|*.txt|Tous les fichiers (*.*)|*.*";
+header h1 {
+    margin: 0;
+}
 
+header p {
+    margin-bottom: 0;
+    color: #d5e0ec;
+}
 
+.container {
+    display: flex;
+    max-width: 1250px;
+    margin: 30px auto;
+    gap: 25px;
+    padding: 0 20px;
+}
 
-DATAGRIDVIEW :
+nav {
+    width: 230px;
+    flex-shrink: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
 
-	Clear du DGV :
-		dgv.Columns.Clear();
+nav h3 {
+    margin-top: 0;
+}
 
-	Ajout des colonnes :
-// Premier paramètre : le nom utilisé dans ton code.
-// Deuxième paramètre : le texte affiché dans l'en-tête du tableau.
-		dgv.Columns.Add("Nom", "Nom du canton");
-dgv.Columns.Add("Population", "Population suisse");
+nav a {
+    display: block;
+    color: #245b91;
+    text-decoration: none;
+    padding: 9px 0;
+}
 
-	Ajout des lignes :
-		dgv.Rows.Add("Genève", 520000);
+nav a:hover {
+    color: #007bff;
+}
 
-	
-Nom du canton
-Population suisse
-Genève
-520000
+main {
+    flex: 1;
+    min-width: 0;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+}
 
+section {
+    margin-bottom: 45px;
+}
+
+h2 {
+    color: #243b55;
+    border-bottom: 2px solid #e5eaf0;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #345d83;
+    margin-top: 28px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 18px;
+    border-radius: 7px;
+    overflow-x: auto;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.code-comment {
+    color: #8fa3b8;
+}
+
+.variable {
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+.note {
+    background: #eaf3ff;
+    border-left: 4px solid #3182ce;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #243b55;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+}
+
+@media (max-width: 750px) {
+    .container {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        position: static;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    header {
+        padding: 25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>CSharpExplicationsPratiques</h1>
+    <p>Explications et exemples pratiques en C#</p>
+</header>
+
+<div class="container">
+
+<nav>
+    <h3>Navigation</h3>
+    <a href="#thread">Thread</a>
+    <a href="#fichier">Sélectionner un fichier</a>
+    <a href="#datagridview">DataGridView</a>
+</nav>
+
+<main>
+
+<p><strong>Date :</strong> 04/11/2026</p>
+
+<div class="note">
+    <strong>Convention :</strong>
+    Les éléments affichés en bleu sont des variables dont le nom peut être personnalisé.
+</div>
+
+<!-- THREAD -->
+
+<section id="thread">
+
+<h2>Thread</h2>
+
+<h3>Ajouter une fonction dans un Thread</h3>
+
+<p>Permet de créer un Thread qui exécutera une fonction.</p>
+
+<pre><code>Thread <span class="variable">myThread</span> = new Thread(FONCTION);</code></pre>
+
+<h3>Démarrer le Thread</h3>
+
+<p>Pour lancer l'exécution du Thread :</p>
+
+<pre><code><span class="variable">myThread</span>.Start();</code></pre>
+
+</section>
+
+<!-- OPEN FILE DIALOG -->
+
+<section id="fichier">
+
+<h2>Ouvrir une fenêtre pour sélectionner un fichier</h2>
+
+<h3>Création de la fenêtre</h3>
+
+<pre><code>OpenFileDialog <span class="variable">openFileDialog</span> = new OpenFileDialog();</code></pre>
+
+<h3>Définir le répertoire de départ</h3>
+
+<p>Permet de définir le dossier dans lequel la fenêtre s'ouvrira.</p>
+
+<pre><code><span class="variable">openFileDialog</span>.InitialDirectory = "C:\\MesDocuments\\Cantons";</code></pre>
+
+<p>Ou utiliser le dossier dans lequel se trouve le fichier EXE :</p>
+
+<pre><code><span class="variable">openFileDialog</span>.InitialDirectory = Application.StartupPath;</code></pre>
+
+<div class="note">
+    Cette propriété définit le répertoire initial, mais n'ouvre pas
+    elle-même la fenêtre de sélection.
+</div>
+
+<h3>Afficher la fenêtre et récupérer le fichier</h3>
+
+<p>La fenêtre s'ouvre. Si l'utilisateur clique sur OK, on récupère le chemin du fichier sélectionné.</p>
+
+<pre><code>if (<span class="variable">openFileDialog</span>.ShowDialog() == DialogResult.OK)
+{
+    // Récupère le nom complet du fichier sélectionné
+    FileName = <span class="variable">openFileDialog</span>.FileName;
+}</code></pre>
+
+<h3>Ajouter un titre à la fenêtre</h3>
+
+<pre><code><span class="variable">openFileDialog</span>.Title = "Sélectionner le fichier";</code></pre>
+
+<h3>Filtrer les extensions</h3>
+
+<p>Permet de choisir quels types de fichiers sont affichés.</p>
+
+<pre><code><span class="variable">openFileDialog</span>.Filter =
+    "Fichiers texte (*.txt)|*.txt|Tous les fichiers (*.*)|*.*";</code></pre>
+
+</section>
+
+<!-- DATAGRIDVIEW -->
+
+<section id="datagridview">
+
+<h2>DataGridView</h2>
+
+<h3>Vider les colonnes du DataGridView</h3>
+
+<p>Supprime toutes les colonnes du tableau.</p>
+
+<pre><code><span class="variable">dgv</span>.Columns.Clear();</code></pre>
+
+<h3>Ajouter des colonnes</h3>
+
+<p>Permet de créer les colonnes du tableau.</p>
+
+<div class="note">
+    Premier paramètre : le nom utilisé dans ton code.<br>
+    Deuxième paramètre : le texte affiché dans l'en-tête du tableau.
+</div>
+
+<pre><code><span class="variable">dgv</span>.Columns.Add("Nom", "Nom du canton");
+
+<span class="variable">dgv</span>.Columns.Add("Population", "Population suisse");</code></pre>
+
+<h3>Ajouter des lignes</h3>
+
+<p>Permet d'ajouter une ligne avec les valeurs souhaitées.</p>
+
+<pre><code><span class="variable">dgv</span>.Rows.Add("Genève", 520000);</code></pre>
+
+<h3>Exemple de résultat</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom du canton</th>
+            <th>Population suisse</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Genève</td>
+            <td>520000</td>
+        </tr>
+    </tbody>
+</table>
+
+</section>
+
+</main>
+</div>
+
+<footer>
+    CSharpExplicationsPratiques - Tutoriels C#
+</footer>
+
+</body>
+</html>
